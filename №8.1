@@ -1,0 +1,12 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main() {
+    int n;
+    cout<<"Enter one integer N (-10^9 to 10^9) : ";
+    cin>>n;
+    double* n2 = new double(n); //указатель на переменную
+    double** n3 = &n2; //указатель на указатель
+    cout<<**n3;
+    delete n2;
+}
