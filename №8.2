@@ -1,0 +1,26 @@
+#include <iostream>
+#include <algorithm>
+#include <random>
+#include <chrono>
+using namespace std;
+int main() {
+    int n;
+    cout<<"Enter one integer N (1 to 1000) : ";
+    cin >> n;
+    double* arr = new double[n];
+    for (int i = 0; i < n; i++) {
+        arr[i] = i + 1;
+    }
+    auto seed = std::chrono::system_clock::now().time_since_epoch().count();
+    shuffle(arr, arr + n, std::default_random_engine(seed));
+    double sum = 0, spare_sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += arr[i];
+    }
+    spare_sum = n*((n+1)/2);
+    cout<<"According to the formula of the sum of the arithmetic progression : "<<spare_sum<<"\n";
+    cout <<"Using the sum of all the components of a randomly shuffled array : "<< sum;
+    delete[] arr;
+    
+    return 0;
+}
