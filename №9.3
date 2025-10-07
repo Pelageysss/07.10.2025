@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+double power(double a, int n) {
+    if (n == 0) {
+        return 1;
+    }
+    return a * power(a, n - 1);
+}
+
+int main() {
+    double base;
+    int exponent;
+    cout << "Enter the base (a): ";
+    cin >> base;
+    cout << "Enter the exponent (n): ";
+    cin >> exponent;
+    double result = power(base, exponent);
+    cout << base << " to the extent of " << exponent << " = " << result ;
+    
+    return 0;
+}
